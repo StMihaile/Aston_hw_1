@@ -13,7 +13,6 @@ type Props = {
 const CommentList: React.FC<Props> = ({ comments }) => {
   const [expandedComments, setExpandedComments] = useState<Record<string, boolean>>({});
 
-  // Переключатель для разворота/свертки комментария
   const toggleExpand = useCallback(
     (commentId: string | number) => {
       setExpandedComments(prevState => ({
