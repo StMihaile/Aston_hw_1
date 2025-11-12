@@ -6,7 +6,7 @@ const PostLengthFilter = ({ setMaxLength }) => {
   const handleChange = (event) => {
     const newValue = Number(event.target.value);
     setCurrentValue(newValue);
-    setMaxLength(newValue); // Передаем значение обратно в родительский компонент
+    setMaxLength(newValue);
   };
 
   return (

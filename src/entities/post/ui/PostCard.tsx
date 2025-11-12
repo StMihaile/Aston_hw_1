@@ -1,12 +1,13 @@
-import PostDetails from '../../../widgets/PostList/PostDetails';
-const PostCard = ({ title, content }) => {
-  return (
-    <div style={{ border: '1px solid #c9e3eaff', padding: '15px', marginBottom: '15px' }}>
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+
+const PostCard = ({ id, title, content }) => (
+  <div style={{ border: '1px solid #c9e3eaff', padding: '15px', marginBottom: '15px' }}>
+    <NavLink to={`/posts/${id}`}>
       <h3>{title}</h3>
-      <p>{content}</p>
-      <PostDetails />
-    </div>
-  );
-};
+    </NavLink>
+    <p>{content}</p>
+  </div>
+);
 
 export default PostCard;

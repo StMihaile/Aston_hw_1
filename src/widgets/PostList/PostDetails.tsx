@@ -1,27 +1,27 @@
 import React from 'react';
 
-import CommentList from '../../widgets/CommentList/ui/CommentList';
+const PostDetails = ({ post }) => {
+  if (!post) {
+    return <div>Нет данных по посту</div>;
+  }
 
-const PostDetails = () => {
-    const postData = {
-        id: 1,
-        title: 'Новый интересный пост',
-        content: 'Детализированное содержание моего поста.'
-    };
+  const comments = [
+    { id: 1, text: 'Комментарий 1', author: 'Пользователь 1' },
+    { id: 2, text: 'Комментарий 2', author: 'Пользователь 2' }
+  ];
 
-    const comments = [
-        { id: 1, text: 'Комментарий 1', author: 'Пользователь 1' },
-        { id: 2, text: 'Комментарий 2', author: 'Пользователь 2' },
-        { id: 3, text: 'Ещё один комментарий', author: 'Пользователь 3' },
-    ];
-
-    return (
-        <div>
-            <h1>Детали поста</h1>
-            <h2>Комментарии:</h2>
-            <CommentList comments={comments} />
+  return (
+    <div>
+      <h2>{post.title}</h2>
+      <p>{post.content}</p>
+      <h3>Комментарии:</h3>
+      {comments.map(comment => (
+        <div key={comment.id}>
+          <strong>{comment.author}:</strong> {comment.text}
         </div>
-    );
+      ))}
+    </div>
+  );
 };
 
 export default PostDetails;
