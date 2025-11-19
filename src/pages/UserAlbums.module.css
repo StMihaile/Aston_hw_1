@@ -1,0 +1,41 @@
+.wrapper {
+  background: #fff;
+  border-radius: 8px;
+  padding: 24px 38px;
+  box-shadow: 0 2px 10px rgba(60,80,150,0.09);
+  max-width: 650px;
+  margin: 0 auto;
+}
+.list {
+  margin: 20px 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+.album {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eaf3ff;
+  padding: 14px 0;
+}
+.icon {
+  font-size: 28px;
+  margin-right: 18px;
+}
+.content {
+  display: flex; flex-direction: column;
+}
+.title {
+  color: #4680c2;
+  font-weight: bold;
+  font-size: 16px;
+}
+.id {
+  color: #8b9bb4;
+  font-size: 13px;
+}
+.info {
+  color: #4680c2;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 18px;
+}

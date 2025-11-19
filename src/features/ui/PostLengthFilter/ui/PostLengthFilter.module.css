@@ -1,0 +1,14 @@
+.filterBox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+  gap: 16px;
+}
+.label {
+  color: #4680c2; font-size: 15px;
+}
+.input {
+  border: 1px solid #d7e2f1; background: #eaf3ff;
+  border-radius: 8px; font-size: 15px; padding: 6px 10px;
+  width: 60px;
+}

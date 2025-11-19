@@ -1,21 +1,31 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
+import { useGetAlbumsByUserIdQuery } from '../entities/albums/api/albumsApi';
+import styles from './UserAlbums.module.css';
 
-const albums = [
-  { id: 1, name: 'Путешествия', photoCount: 12 },
-  { id: 2, name: 'Учёба', photoCount: 8 }
-];
+const UserAlbums = () => {
+  const { id } = useParams();
+  const { data: albums = [], isLoading, error } = useGetAlbumsByUserIdQuery(id);
 
-const UserAlbums = () => (
-  <div>
-    <h1>Альбомы пользователя</h1>
-    <ul>
-      {albums.map(album => (
-        <li key={album.id}>
-          {album.name} ({album.photoCount} фото)
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+  if (isLoading) return <div className={styles.info}>Загрузка...</div>;
+  if (error) return <div className={styles.info}>Ошибка загрузки альбомов</div>;
+
+  return (
+    <div className={styles.wrapper}>
+      <h2>Альбомы пользователя {id}</h2>
+      <ul className={styles.list}>
+        {albums.map(album => (
+          <li key={album.id} className={styles.album}>
+            <div className={styles.icon}>🖼️</div>
+            <div className={styles.content}>
+              <div className={styles.title}>{album.title}</div>
+              <div className={styles.id}>ID альбома: {album.id}</div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 export default UserAlbums;

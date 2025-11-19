@@ -5,7 +5,7 @@ const App = () => {
   const [maxLength, setMaxLength] = useState(20);
   return (
     <MainLayout>
-      <AppRouter />
+      <AppRouter maxLength={maxLength} setMaxLength={setMaxLength} />
     </MainLayout>
   );
 };

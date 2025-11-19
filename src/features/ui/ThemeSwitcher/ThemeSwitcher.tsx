@@ -1,13 +1,13 @@
 import { useTheme } from '../../../shared/lib/theme/ThemeContext';
+import styles from './ThemeSwitcher.module.css';
 
 const ThemeSwitcher = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <button onClick={toggleTheme} style={{ padding: '8px', cursor: 'pointer' }}>
-      {theme === 'light' ? 'Тёмная тема' : 'Светлая тема'}
+    <button className={styles.themeBtn} onClick={toggleTheme}>
+      {theme === 'light' ? '🌙 Тёмная тема' : '☀️ Светлая тема'}
     </button>
   );
 };
-
 export default ThemeSwitcher;

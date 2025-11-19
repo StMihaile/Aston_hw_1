@@ -1,12 +1,13 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import styles from './PostCard.module.css';
 
-const PostCard = ({ id, title, content }) => (
-  <div style={{ border: '1px solid #c9e3eaff', padding: '15px', marginBottom: '15px' }}>
-    <NavLink to={`/posts/${id}`}>
-      <h3>{title}</h3>
-    </NavLink>
-    <p>{content}</p>
+const PostCard = ({ id, title, body }) => (
+  <div className={styles.card}>
+    <Link className={styles.title} to={`/posts/${id}`}>
+      {title}
+    </Link>
+    <p className={styles.body}>{body}</p>
   </div>
 );
 

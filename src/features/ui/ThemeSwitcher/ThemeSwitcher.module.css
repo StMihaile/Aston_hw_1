@@ -1,0 +1,13 @@
+.themeBtn {
+  background: #fff;
+  border: 1px solid #4680c2;
+  color: #4680c2;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background .15s;
+}
+.themeBtn:hover {
+  background: #eaf3ff;
+}
