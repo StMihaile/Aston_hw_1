@@ -2,7 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './PostCard.module.css';
 
-const PostCard = ({ id, title, body }) => (
+interface PostCardProps {
+  id: number;
+  title: string;
+  body: string;
+}
+
+const PostCard: React.FC<PostCardProps> = ({ id, title, body }) => (
   <div className={styles.card}>
     <Link className={styles.title} to={`/posts/${id}`}>
       {title}

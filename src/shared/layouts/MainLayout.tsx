@@ -1,8 +1,9 @@
+import React, { PropsWithChildren } from 'react';
 import Header from '../../widgets/LayoutHeader/Header';
 import Footer from '../../widgets/LayoutFooter/Footer';
 import styles from './MainLayout.module.css';
 
-const MainLayout = ({ children }) => {
+const MainLayout: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <div className={styles.container}>
       <Header />

@@ -4,8 +4,8 @@ import { useGetPostByIdQuery } from '../entities/post/api/postsApi';
 import { useGetCommentsByPostIdQuery } from '../entities/comments/api/commentsApi';
 import styles from './PostDetailsPage.module.css';
 
-const PostDetailsPage = () => {
-  const { id } = useParams();
+const PostDetailsPage: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { data: post, isLoading, error } = useGetPostByIdQuery(id);
   const { data: comments = [], isLoading: commentsLoading } = useGetCommentsByPostIdQuery(id);

@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
-const Body = ({ children }) => {
+const Body: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <div style={{ marginBottom: '10px' }}>
       {children}

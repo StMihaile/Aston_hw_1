@@ -1,0 +1,9 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.loading, .error {
+  color: #ff3c3c;
+  margin: 18px 0;
+}

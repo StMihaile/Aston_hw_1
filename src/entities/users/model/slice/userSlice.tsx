@@ -1,12 +1,6 @@
 import { createSlice, createEntityAdapter } from '@reduxjs/toolkit';
 import type { RootState } from '../../../../app/providers/store/store';
-
-export interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-}
+import { User } from '../../model/types';
 
 const usersAdapter = createEntityAdapter<User>();
 const initialState = usersAdapter.getInitialState();

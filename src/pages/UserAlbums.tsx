@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useGetAlbumsByUserIdQuery } from '../entities/albums/api/albumsApi';
 import styles from './UserAlbums.module.css';
 
-const UserAlbums = () => {
-  const { id } = useParams();
+const UserAlbums: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
   const { data: albums = [], isLoading, error } = useGetAlbumsByUserIdQuery(id);
 
   if (isLoading) return <div className={styles.info}>Загрузка...</div>;

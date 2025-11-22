@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import styles from './PostLengthFilter.module.css';
 
-const PostLengthFilter = ({ setMaxLength }) => {
+interface PostLengthFilterProps {
+  setMaxLength: (value: number) => void;
+}
+
+const PostLengthFilter: React.FC<PostLengthFilterProps> = ({ setMaxLength }) => {
   const [currentValue, setCurrentValue] = useState(20);
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = Number(event.target.value);
     setCurrentValue(newValue);
     setMaxLength(newValue);
@@ -17,7 +21,8 @@ const PostLengthFilter = ({ setMaxLength }) => {
       </label>
       <input
         type="number"
-        min={1} max={100}
+        min={1}
+        max={100}
         id="length-filter"
         value={currentValue}
         onChange={handleChange}

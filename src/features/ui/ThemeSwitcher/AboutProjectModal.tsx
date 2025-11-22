@@ -5,7 +5,7 @@ import Body from '../../../shared/ui/Modal/ModalBody';
 import Footer from '../../../shared/ui/Modal/ModalFooter';
 import styles from './AboutProjectModal.module.css';
 
-const AboutProjectModal = () => {
+const AboutProjectModal: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => setIsOpen(true);
@@ -19,7 +19,7 @@ const AboutProjectModal = () => {
           <h2>О проекте</h2>
         </Header>
         <Body>
-          <p>SPA-приложение для VK, React + TypeScript + RTK Query + Тема + Модальное окно.</p>
+          <p>SPA-приложение, React + TypeScript + RTK Query + Тема + Модальное окно.</p>
         </Body>
         <Footer>
           <button className={styles.btn} onClick={closeModal}>Закрыть</button>

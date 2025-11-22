@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useGetPostsByUserIdQuery } from '../entities/post/api/postsApi';
 import styles from './UserPosts.module.css';
 
-const UserPosts = () => {
-  const { id } = useParams();
+const UserPosts: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
   const { data: posts = [], isLoading, error } = useGetPostsByUserIdQuery(id);
 
   if (isLoading) return <div className={styles.info}>Загрузка...</div>;
