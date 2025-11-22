@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useGetPhotosByAlbumIdQuery } from '../entities/photos/api/potosApi';
 import styles from './AlbumPhotos.module.css';
 
-const AlbumPhotos = () => {
-  const { id } = useParams();
+const AlbumPhotos: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
   const { data: photos = [], isLoading, error } = useGetPhotosByAlbumIdQuery(id);
 
   if (isLoading) return <div className={styles.info}>Загрузка...</div>;

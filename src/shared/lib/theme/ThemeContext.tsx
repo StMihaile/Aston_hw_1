@@ -1,9 +1,14 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, PropsWithChildren } from 'react';
 
-const ThemeContext = createContext(undefined);
+interface ThemeCtx {
+  theme: 'light' | 'dark';
+  toggleTheme: () => void;
+}
 
-export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState('light');
+const ThemeContext = createContext<ThemeCtx | undefined>(undefined);
+
+export const ThemeProvider: React.FC<PropsWithChildren> = ({ children }) => {
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   const toggleTheme = () => {
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'));
@@ -16,4 +21,8 @@ export const ThemeProvider = ({ children }) => {
   );
 };
 
-export const useTheme = () => useContext(ThemeContext);
+export const useTheme = (): ThemeCtx => {
+  const ctx = useContext(ThemeContext);
+  if (!ctx) throw new Error('useTheme must be used within ThemeProvider');
+  return ctx;
+};

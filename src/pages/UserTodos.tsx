@@ -3,8 +3,8 @@ import { useParams } from 'react-router-dom';
 import { useGetTodosByUserIdQuery } from '../entities/todos/api/todosApi';
 import styles from './UserTodos.module.css';
 
-const UserTodos = () => {
-  const { id } = useParams();
+const UserTodos: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
   const { data: todos = [], isLoading, error } = useGetTodosByUserIdQuery(id);
 
   if (isLoading) return <div className={styles.info}>Загрузка...</div>;

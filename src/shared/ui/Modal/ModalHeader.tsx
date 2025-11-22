@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 
-const Header = ({ children }) => {
+const Header: React.FC<PropsWithChildren> = ({ children }) => {
   return (
     <div style={{ marginBottom: '10px', fontSize: '18px', fontWeight: 'bold' }}>
       {children}

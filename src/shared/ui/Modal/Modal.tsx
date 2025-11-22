@@ -1,7 +1,13 @@
+import React, { PropsWithChildren } from 'react';
 import ReactDOM from 'react-dom';
 import styles from './Modal.module.css';
 
-const Modal = ({ isOpen, onClose, children }) => {
+interface ModalProps extends PropsWithChildren {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
   if (!isOpen) return null;
   return ReactDOM.createPortal(
     <div className={styles.overlay}>
@@ -13,4 +19,5 @@ const Modal = ({ isOpen, onClose, children }) => {
     document.body
   );
 };
+
 export default Modal;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './index.module.css';
+import styles from './UserTabs.module.css';
 
-const UserTabs = () => {
+const UserTabs: React.FC = () => {
   return (
     <nav className={styles.nav}>
       <NavLink
