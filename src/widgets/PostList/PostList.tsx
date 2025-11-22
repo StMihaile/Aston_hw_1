@@ -1,32 +1,25 @@
 import React from 'react';
 import PostCard from '../../entities/post/ui/PostCard';
 import { filterByLength } from '../../features/ui/PostLengthFilter/lib/filterByLength';
-import withLoading from '../../shared/lib/hoc/withLoading';
-import usePosts from '../../features/ui/PostList/model/hooks/usePosts';
-
-
+import { useGetPostsQuery } from '../../entities/post/api/postsApi';
 import styles from './PostList.module.css';
 
 const PostList = ({ maxLength }) => {
-  const { posts, loading, error } = usePosts();
+  const { data: posts = [], error, isLoading } = useGetPostsQuery();
 
   const filteredPosts = React.useMemo(() => {
-    if (posts) {
-      return filterByLength(posts, maxLength || 20);
-    }
-    return [];
+    return filterByLength(posts, maxLength);
   }, [posts, maxLength]);
 
-  if (error) return <div>Ошибка загрузки постов</div>;
-  if (loading) return <div>Загрузка...</div>;
+  if (isLoading) return <div className={styles.loading}>Загрузка...</div>;
+  if (error) return <div className={styles.error}>Ошибка загрузки постов</div>;
 
   return (
-    <div className={styles.postList}>
-      {filteredPosts.map((post) => (
-        <PostCard key={post.id} id={post.id} title={post.title} content={post.content} />
+    <div className={styles.list}>
+      {filteredPosts.map(post => (
+        <PostCard key={post.id} id={post.id} title={post.title} body={post.body} />
       ))}
     </div>
   );
 };
-
-export default withLoading(PostList);
+export default PostList;

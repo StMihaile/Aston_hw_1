@@ -1,5 +1,9 @@
-.postList {
+.list {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 14px;
+}
+.loading, .error {
+  color: #ff3c3c;
+  margin: 18px 0;
 }

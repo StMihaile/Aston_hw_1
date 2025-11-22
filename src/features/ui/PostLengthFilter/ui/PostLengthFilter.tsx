@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './PostLengthFilter.module.css';
 
 const PostLengthFilter = ({ setMaxLength }) => {
   const [currentValue, setCurrentValue] = useState(20);
@@ -10,16 +11,19 @@ const PostLengthFilter = ({ setMaxLength }) => {
   };
 
   return (
-    <div>
-      <label htmlFor="length-filter">Максимальная длина заголовка:</label>
+    <div className={styles.filterBox}>
+      <label htmlFor="length-filter" className={styles.label}>
+        Макс. длина заголовка:
+      </label>
       <input
         type="number"
+        min={1} max={100}
         id="length-filter"
         value={currentValue}
         onChange={handleChange}
+        className={styles.input}
       />
     </div>
   );
 };
-
 export default PostLengthFilter;

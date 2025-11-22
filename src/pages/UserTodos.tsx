@@ -1,29 +1,25 @@
-import React, { useState } from 'react';
-
-const initialTodos = [
-  { id: 1, text: 'Записаться к врачу', done: false },
-  { id: 2, text: 'Купить хлеб', done: true }
-];
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import { useGetTodosByUserIdQuery } from '../entities/todos/api/todosApi';
+import styles from './UserTodos.module.css';
 
 const UserTodos = () => {
-  const [todos, setTodos] = useState(initialTodos);
+  const { id } = useParams();
+  const { data: todos = [], isLoading, error } = useGetTodosByUserIdQuery(id);
 
-  const toggleDone = id => {
-    setTodos(todos => todos.map(todo =>
-      todo.id === id ? { ...todo, done: !todo.done } : todo
-    ));
-  };
+  if (isLoading) return <div className={styles.info}>Загрузка...</div>;
+  if (error) return <div className={styles.info}>Ошибка загрузки задач</div>;
 
   return (
-    <div>
-      <h1>Дела</h1>
-      <ul>
+    <div className={styles.wrapper}>
+      <h2>Задачи пользователя {id}</h2>
+      <ul className={styles.list}>
         {todos.map(todo => (
-          <li key={todo.id}>
-            <span>{todo.text}</span>
-            <button onClick={() => toggleDone(todo.id)}>
-              {todo.done ? 'Сделано' : 'В процессе'}
-            </button>
+          <li key={todo.id} className={styles.todo}>
+            <span className={todo.completed ? styles.done : styles.inProgress}>
+              {todo.completed ? '✔' : '•'}
+            </span>
+            <span className={styles.title}>{todo.title}</span>
           </li>
         ))}
       </ul>

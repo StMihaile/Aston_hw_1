@@ -3,6 +3,8 @@ import Modal from '../../../shared/ui/Modal/Modal';
 import Header from '../../../shared/ui/Modal/ModalHeader';
 import Body from '../../../shared/ui/Modal/ModalBody';
 import Footer from '../../../shared/ui/Modal/ModalFooter';
+import styles from './AboutProjectModal.module.css';
+
 const AboutProjectModal = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -11,20 +13,19 @@ const AboutProjectModal = () => {
 
   return (
     <>
-      <button onClick={openModal} style={{ marginLeft: '10px', padding: '8px' }}>Модальное окно</button>
+      <button className={styles.btn} onClick={openModal}>О проекте</button>
       <Modal isOpen={isOpen} onClose={closeModal}>
         <Header>
           <h2>О проекте</h2>
         </Header>
         <Body>
-          <p>Проекта на React + TypeScript с реализацией модального окна и темы.</p>
+          <p>SPA-приложение для VK, React + TypeScript + RTK Query + Тема + Модальное окно.</p>
         </Body>
         <Footer>
-          <button onClick={closeModal}>Закрыть</button>
+          <button className={styles.btn} onClick={closeModal}>Закрыть</button>
         </Footer>
       </Modal>
     </>
   );
 };
-
 export default AboutProjectModal;

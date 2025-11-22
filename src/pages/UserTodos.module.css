@@ -1,0 +1,39 @@
+.wrapper {
+  background: #fff;
+  border-radius: 8px;
+  padding: 24px 38px;
+  box-shadow: 0 2px 10px rgba(60,80,150,0.09);
+  max-width: 650px;
+  margin: 0 auto;
+}
+.list {
+  margin: 20px 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+.todo {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eaf3ff;
+  padding: 12px 0;
+  gap: 14px;
+}
+.done {
+  color: #47ae49;
+  font-size: 19px;
+}
+.inProgress {
+  color: #ffaf2b;
+  font-size: 20px;
+  line-height: 1;
+}
+.title {
+  color: #4680c2;
+  font-size: 15px;
+}
+.info {
+  color: #4680c2;
+  text-align: center;
+  margin-top: 40px;
+  font-size: 18px;
+}
